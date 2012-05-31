@@ -12,13 +12,17 @@
 @interface BookCollection : NSObject
 
 @property (nonatomic) NSMutableArray *collection;
+@property (nonatomic, readonly) NSMutableArray *readBooks;
+@property (nonatomic, readonly) NSMutableArray *readingBooks;
+@property (nonatomic, readonly) NSMutableArray *lentBooks;
 @property (nonatomic, readonly) NSMutableArray *allBooks;
 
 - (id) init;
 - (id) initWithBooks:(NSMutableArray*) books;
 - (void) refreshArrays;
 - (void) deleteBook: (NSNumber*)index;
-- (void) changeBookState: (NSNumber*)state: (NSNumber*)index;
+- (void) editBook: (Book*)newBook: (NSNumber*)index;
 - (void) addBook: (Book*)book;
+- (BOOL) duplicateName: (NSString*)name;
 
 @end

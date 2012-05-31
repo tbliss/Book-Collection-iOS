@@ -48,7 +48,7 @@
 			<key>Key</key>
 			<string>qrcodes</string>
 			<key>DefaultValue</key>
-			<true/>
+			<false/>
 		</dict>
 	</array>
 </dict>

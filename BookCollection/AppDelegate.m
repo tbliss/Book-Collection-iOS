@@ -7,14 +7,36 @@
 //
 
 #import "AppDelegate.h"
+#import "BookTabVC.h"
+#import "Book.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize bookCollection = _bookCollection;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Set default settings for Barcode Scanner
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSMutableDictionary *defaultsDict = [NSMutableDictionary dictionary];    
+	[defaultsDict setObject:[NSNumber numberWithBool:YES] forKey:@"ean13upca"];
+	[defaultsDict setObject:[NSNumber numberWithBool:YES] forKey:@"ean8"];
+	[defaultsDict setObject:[NSNumber numberWithBool:YES] forKey:@"upce"];
+	[defaultsDict setObject:[NSNumber numberWithBool:NO] forKey:@"qrcodes"];    
+	[defaults registerDefaults:defaultsDict];
+    
+    NSData *data = [defaults objectForKey:@"bookCollection"];
+    NSMutableArray *tempCollection = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (tempCollection) {
+        self.bookCollection = [[BookCollection alloc] initWithBooks:tempCollection];
+    } else {
+        [self populateExData];        
+    }
+    
+    ((BookTabVC*)self.window.rootViewController).bookCollection = self.bookCollection;
+    
     return YES;
 }
 							
@@ -28,6 +50,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self saveState];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -43,6 +66,53 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self saveState];
+}
+
+- (void)saveState
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //[defaults setObject:self.bookCollection.collection forKey:@"bookCollection"];
+    //[defaults synchronize];
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.bookCollection.collection];
+    [defaults setObject:data forKey:@"bookCollection"];
+    [defaults synchronize];
+}
+
+- (void)populateExData
+{
+    // Add some default books
+    NSMutableArray *bookArray = [NSMutableArray arrayWithCapacity:3];
+    
+    Book *book1 = [[Book alloc] init];
+    book1.title = @"Catcher in the Rye";
+    book1.author = @"J. D. Salinger";
+    book1.read = YES;
+    book1.reading = NO;
+    book1.lentOut = NO;
+    book1.lentTo = @"";
+    [bookArray addObject:book1];
+    
+    Book *book2 = [[Book alloc] init];
+    book2.title = @"Slaughterhouse Five";
+    book2.author = @"Kurt Vonnegut";
+    book1.read = YES;
+    book1.reading = YES;
+    book1.lentOut = YES;
+    book1.lentTo = @"Stacy";
+    [bookArray addObject:book2];
+    
+    Book *book3 = [[Book alloc] init];
+    book3.title = @"Cool Book";
+    book3.author = @"Cool Guy";
+    book1.read = NO;
+    book1.reading = NO;
+    book1.lentOut = NO;
+    book1.lentTo = @"";
+    [bookArray addObject:book3];
+    
+    self.bookCollection = [[BookCollection alloc]initWithBooks:bookArray];
 }
 
 @end

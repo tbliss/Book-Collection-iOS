@@ -6,55 +6,71 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "BookViewController.h"
+#import "BookVC.h"
 
-@interface BookViewController ()
+@interface BookVC ()
 
 @end
 
-@implementation BookViewController
-@synthesize bookState = _bookState;
+@implementation BookVC
 @synthesize bookTitle = _bookTitle;
 @synthesize bookAuthor = _bookAuthor;
-@synthesize collection = _collection;
-@synthesize myTitle = _myTitle;
-@synthesize myAuthor = _myAuthor;
-@synthesize myState = _myState;
-@synthesize index = _index;
+@synthesize lentOutName = _lentOutName;
+@synthesize lentOutSwitch = _lentOutSwitch;
+@synthesize read = _read;
+@synthesize reading = _reading;
 
-- (void) bookStateChanged
+@synthesize collection = _collection;
+@synthesize book = _book;
+@synthesize editedBook = _editedBook;
+
+@synthesize currTextField = _currTextField;
+
+- (IBAction)bookEdited:(id)sender
 {
-    if (self.bookState.selectedSegmentIndex == 0) {
-        [self.collection changeBookState:[NSNumber numberWithInt:0] :self.index];
-    } 
-    else if (self.bookState.selectedSegmentIndex == 1) {
-        [self.collection changeBookState:[NSNumber numberWithInt:1] :self.index];
-    } 
-    else if (self.bookState.selectedSegmentIndex == 2) {
-        [self.collection changeBookState:[NSNumber numberWithInt:2] :self.index];
-    }
+    [self updateNewBook];
+}
+
+- (void) updateNewBook
+{
+    Book *book = [[Book alloc] init];
+    book.title = self.bookTitle.text;
+    book.author = self.bookAuthor.text;
+    book.lentOut = self.lentOutSwitch.on;
+    book.read = self.read.on;
+    book.reading = self.reading.on;
+    book.lentTo = self.lentOutName.text;
+    book.index = self.book.index;
+    
+    [self.collection editBook:book :book.index];
 }
 
 - (void) deleteBook
 {
-    [self.collection deleteBook:self.index];
+    [self.collection deleteBook:self.book.index];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad
 {
+    //NSLog(@"BookVC, viewDidLoad: %@", self.book.title);
     [super viewDidLoad];
     
-    self.bookTitle.text = self.myTitle;
-    self.bookAuthor.text = self.myAuthor;
-    
-    if ([self.myState isEqualToString:@"read"]) {
-        self.bookState.selectedSegmentIndex = 0;
-    } else if ([self.myState isEqualToString:@"reading"]) {
-        self.bookState.selectedSegmentIndex = 1;
-    } else if ([self.myState isEqualToString:@"wishlist"]) {
-        self.bookState.selectedSegmentIndex = 2;
+    self.bookTitle.text = self.book.title;
+    self.bookTitle.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:22];
+    //self.bookTitle.numberOfLines = 1;
+    //self.bookTitle.minimumFontSize = 24;
+    //self.bookTitle.adjustsFontSizeToFitWidth = YES;
+    self.bookAuthor.text = self.book.author;
+    self.bookAuthor.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:18];
+    self.lentOutSwitch.on = self.book.lentOut;
+    self.read.on = self.book.read;
+    self.reading.on = self.book.reading;
+    if (self.lentOutSwitch.on) {
+        self.lentOutName.text = self.book.lentTo;
     }
+    self.lentOutName.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    self.lentOutName.returnKeyType = UIReturnKeyDone;
     
     UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] 
                                        initWithTitle:@"Delete" 
@@ -63,20 +79,61 @@
                                        action:@selector(deleteBook)];
     self.navigationItem.rightBarButtonItem = deleteButton;
     
-	[self.bookState addTarget:self 
-                       action:@selector(bookStateChanged) 
-             forControlEvents:UIControlEventValueChanged];
+    self.lentOutName.delegate = self;
 }
 
 - (void)viewDidUnload
 {
-    //NSLog(@"BookViewController viewDidUnload");
+    //NSLog(@"BookVC, viewDidUnload: %@", self.book.title);
     [super viewDidUnload];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    //NSLog(@"BookVC, viewWillDisappear: %@", self.book.title);
+    [super viewWillDisappear:animated];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    // Update book
+    if (self.lentOutSwitch.on && ![self.lentOutName.text isEqualToString:self.book.lentTo]) {
+        [self updateNewBook];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
+# pragma mark UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.currTextField = textField;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (self.currTextField == textField) {
+        self.currTextField = nil;
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (self.lentOutName == textField) {
+        [self.lentOutName resignFirstResponder];
+    }
+    return YES;
+}
+
+-(IBAction)backgroundTouched:(id)sender
+{
+    if (self.currTextField) {
+        [self.currTextField resignFirstResponder];
+    }
+}
+
 
 @end

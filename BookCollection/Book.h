@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Book : NSObject
+@interface Book : NSObject <NSCoding>
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *author;
-@property (nonatomic) NSString *bookID;
-//@property (nonatomic) NSString *summary;
+@property (nonatomic) BOOL read;
+@property (nonatomic) BOOL reading;
+@property (nonatomic) BOOL lentOut;
+@property (nonatomic) NSString *lentTo;
+@property (nonatomic) NSNumber *index;
 
 @end

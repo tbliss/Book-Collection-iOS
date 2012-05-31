@@ -8,20 +8,25 @@
 
 #import <UIKit/UIKit.h>
 #import "BookCollection.h"
+#import "Book.h"
 
-@interface BookViewController : UIViewController
+@interface BookVC: UIViewController <UITextFieldDelegate>
 
-@property (nonatomic) IBOutlet UISegmentedControl *bookState;
 @property (nonatomic) IBOutlet UILabel *bookTitle;
 @property (nonatomic) IBOutlet UILabel *bookAuthor;
+@property (nonatomic) IBOutlet UITextField *lentOutName;
+@property (nonatomic) IBOutlet UISwitch *lentOutSwitch;
+@property (nonatomic) IBOutlet UISwitch *read;
+@property (nonatomic) IBOutlet UISwitch *reading;
 
 @property (nonatomic) BookCollection *collection;
-@property (nonatomic) NSString *myTitle;
-@property (nonatomic) NSString *myAuthor;
-@property (nonatomic) NSString *myState;
-@property (nonatomic) NSNumber *index;
+@property (nonatomic) Book *book;
+@property (nonatomic) Book *editedBook;
 
-- (void) bookStateChanged;
+@property (nonatomic) UITextField *currTextField;
+
+- (IBAction)bookEdited:(id)sender;
 - (void) deleteBook;
+- (void) updateNewBook;
 
 @end

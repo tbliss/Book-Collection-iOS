@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScannerKit.h"
+#import "AddBookVC.h"
 
-@interface ScannerVC : UIViewController
+@interface ScannerVC : UIViewController <SKScannerViewControllerDelegate>
+
+@property (nonatomic) AddBookVC *addBookVC;
+
+- (void) startScan;
 
 @end

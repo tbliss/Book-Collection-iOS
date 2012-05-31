@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BookCollection.h"
 
-@interface ReadTableVC : UITableViewController
+@interface ReadTableVC : UITableViewController <UIActionSheetDelegate>
+
+@property (nonatomic) int bookCount;
+@property (nonatomic) BookCollection *bookCollection;
+@property (nonatomic) NSMutableArray *books;
+
+- (void) setColl: (BookCollection *)coll;
+- (void) refreshTable;
+
+- (void)showActionSheet;
 
 @end

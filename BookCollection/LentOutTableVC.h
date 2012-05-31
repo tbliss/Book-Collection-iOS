@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BookCollection.h"
 
-@interface WishlistTableVC : UITableViewController
+@interface LentOutTableVC : UITableViewController
+
+@property (nonatomic) int bookCount;
+@property (nonatomic) BookCollection *bookCollection;
+@property (nonatomic) NSMutableArray *books;
+
+- (void) addBook;
+- (void) setColl: (BookCollection *)coll;
+- (void) refreshTable;
 
 @end
