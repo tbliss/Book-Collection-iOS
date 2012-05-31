@@ -1,1 +1,12 @@
-Book Collection README
+Book Collection
+
+Please Note
+To get barcode functionality from this app you must integrate the ShopSavvy Barcode scanner (shopsavvy.com/developers)
+
+About
+This goal of this app is to catalog books you own and track the books you've read, are currently reading, and have lent out to friends.  The app also allows you to record who is currently borrowing your book so you'll never lose another book again.
+
+Future Plans
+- iCloud / Dropbox integration to backup collection of books
+- Book cover picture (from online database or user takes picture on device)
+- Multiple language support
