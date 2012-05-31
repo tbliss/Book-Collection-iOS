@@ -1,13 +1,13 @@
 //
-//  SecondViewController.h
+//  ScannerVC.h
 //  BookCollection
 //
-//  Created by Trevor Bliss on 5/29/12.
+//  Created by Trevor Bliss on 5/30/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface ScannerVC : UIViewController
 
 @end

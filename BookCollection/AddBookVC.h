@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  AddBookVC.h
 //  BookCollection
 //
 //  Created by Trevor Bliss on 5/29/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface AddBookVC : UIView
 
 @end
