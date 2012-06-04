@@ -14,10 +14,6 @@
 		0062537B1575504400F318C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062537A1575504400F318C5 /* main.m */; };
 		0062537F1575504400F318C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062537E1575504400F318C5 /* AppDelegate.m */; };
 		006253821575504500F318C5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006253801575504500F318C5 /* MainStoryboard.storyboard */; };
-		006253871575504500F318C5 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 006253861575504500F318C5 /* first.png */; };
-		006253891575504500F318C5 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 006253881575504500F318C5 /* first@2x.png */; };
-		0062538E1575504500F318C5 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 0062538D1575504500F318C5 /* second.png */; };
-		006253901575504500F318C5 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0062538F1575504500F318C5 /* second@2x.png */; };
 		006253C41575576C00F318C5 /* libScannerKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 006253A91575576C00F318C5 /* libScannerKit.a */; };
 		006253C51575576C00F318C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 006253AB1575576C00F318C5 /* Localizable.strings */; };
 		006253C61575576C00F318C5 /* ScannerKitActivitySpinner.png in Resources */ = {isa = PBXBuildFile; fileRef = 006253AE1575576C00F318C5 /* ScannerKitActivitySpinner.png */; };
@@ -59,11 +55,17 @@
 		0062540D15758B4C00F318C5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0062540C15758B4C00F318C5 /* Settings.bundle */; };
 		0062541015758C0200F318C5 /* AllVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062540F15758C0200F318C5 /* AllVC.m */; };
 		006254131575A7EF00F318C5 /* AddBookVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 006254121575A7EF00F318C5 /* AddBookVC.m */; };
+		009B882B157C4A3A00329588 /* brief_case.png in Resources */ = {isa = PBXBuildFile; fileRef = 009B882A157C4A3A00329588 /* brief_case.png */; };
+		009B882E157C4A6600329588 /* brief_case@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009B882D157C4A6600329588 /* brief_case@2x.png */; };
+		009B8830157C4B1000329588 /* 117-todo.png in Resources */ = {isa = PBXBuildFile; fileRef = 009B882F157C4B1000329588 /* 117-todo.png */; };
+		009B8832157C4B7000329588 /* 24-gift.png in Resources */ = {isa = PBXBuildFile; fileRef = 009B8831157C4B7000329588 /* 24-gift.png */; };
+		009B8834157C4B9100329588 /* 58-bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 009B8833157C4B9100329588 /* 58-bookmark.png */; };
+		009B8836157C4BED00329588 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 009B8835157C4BED00329588 /* 33-cabinet.png */; };
 		009E4989157707FA0017EA50 /* ScannerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 009E4988157707F90017EA50 /* ScannerVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0062536A1575504400F318C5 /* BookCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0062536A1575504400F318C5 /* MyBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0062536E1575504400F318C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		006253701575504400F318C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		006253721575504400F318C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -74,10 +76,6 @@
 		0062537D1575504400F318C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0062537E1575504400F318C5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		006253811575504500F318C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		006253861575504500F318C5 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		006253881575504500F318C5 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		0062538D1575504500F318C5 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		0062538F1575504500F318C5 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		0062539C1575576C00F318C5 /* ScannerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScannerKit.h; sourceTree = "<group>"; };
 		0062539D1575576C00F318C5 /* SKBarcodeCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBarcodeCode.h; sourceTree = "<group>"; };
 		0062539E1575576C00F318C5 /* SKCalendarEventQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCalendarEventQRCode.h; sourceTree = "<group>"; };
@@ -142,6 +140,12 @@
 		0062540F15758C0200F318C5 /* AllVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllVC.m; sourceTree = "<group>"; };
 		006254111575A7EF00F318C5 /* AddBookVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBookVC.h; sourceTree = "<group>"; };
 		006254121575A7EF00F318C5 /* AddBookVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBookVC.m; sourceTree = "<group>"; };
+		009B882A157C4A3A00329588 /* brief_case.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brief_case.png; sourceTree = "<group>"; };
+		009B882D157C4A6600329588 /* brief_case@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brief_case@2x.png"; sourceTree = "<group>"; };
+		009B882F157C4B1000329588 /* 117-todo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "117-todo.png"; sourceTree = "<group>"; };
+		009B8831157C4B7000329588 /* 24-gift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "24-gift.png"; sourceTree = "<group>"; };
+		009B8833157C4B9100329588 /* 58-bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "58-bookmark.png"; sourceTree = "<group>"; };
+		009B8835157C4BED00329588 /* 33-cabinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet.png"; sourceTree = "<group>"; };
 		009E4987157707F90017EA50 /* ScannerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScannerVC.h; sourceTree = "<group>"; };
 		009E4988157707F90017EA50 /* ScannerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScannerVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,7 +185,7 @@
 		0062536B1575504400F318C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0062536A1575504400F318C5 /* BookCollection.app */,
+				0062536A1575504400F318C5 /* MyBooks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,10 +233,12 @@
 				006253F115755C9000F318C5 /* BookCollection.m */,
 				006253F315755CB700F318C5 /* Book.h */,
 				006253F415755CB700F318C5 /* Book.m */,
-				006253861575504500F318C5 /* first.png */,
-				006253881575504500F318C5 /* first@2x.png */,
-				0062538D1575504500F318C5 /* second.png */,
-				0062538F1575504500F318C5 /* second@2x.png */,
+				009B882A157C4A3A00329588 /* brief_case.png */,
+				009B882D157C4A6600329588 /* brief_case@2x.png */,
+				009B8835157C4BED00329588 /* 33-cabinet.png */,
+				009B882F157C4B1000329588 /* 117-todo.png */,
+				009B8831157C4B7000329588 /* 24-gift.png */,
+				009B8833157C4B9100329588 /* 58-bookmark.png */,
 				0062540C15758B4C00F318C5 /* Settings.bundle */,
 				006253751575504400F318C5 /* Supporting Files */,
 			);
@@ -313,9 +319,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		006253691575504400F318C5 /* BookCollection */ = {
+		006253691575504400F318C5 /* MyBooks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 006253931575504500F318C5 /* Build configuration list for PBXNativeTarget "BookCollection" */;
+			buildConfigurationList = 006253931575504500F318C5 /* Build configuration list for PBXNativeTarget "MyBooks" */;
 			buildPhases = (
 				006253661575504400F318C5 /* Sources */,
 				006253671575504400F318C5 /* Frameworks */,
@@ -325,9 +331,9 @@
 			);
 			dependencies = (
 			);
-			name = BookCollection;
+			name = MyBooks;
 			productName = BookCollection;
-			productReference = 0062536A1575504400F318C5 /* BookCollection.app */;
+			productReference = 0062536A1575504400F318C5 /* MyBooks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -352,7 +358,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				006253691575504400F318C5 /* BookCollection */,
+				006253691575504400F318C5 /* MyBooks */,
 			);
 		};
 /* End PBXProject section */
@@ -364,10 +370,6 @@
 			files = (
 				006253791575504400F318C5 /* InfoPlist.strings in Resources */,
 				006253821575504500F318C5 /* MainStoryboard.storyboard in Resources */,
-				006253871575504500F318C5 /* first.png in Resources */,
-				006253891575504500F318C5 /* first@2x.png in Resources */,
-				0062538E1575504500F318C5 /* second.png in Resources */,
-				006253901575504500F318C5 /* second@2x.png in Resources */,
 				006253C51575576C00F318C5 /* Localizable.strings in Resources */,
 				006253C61575576C00F318C5 /* ScannerKitActivitySpinner.png in Resources */,
 				006253C71575576C00F318C5 /* ScannerKitActivitySpinner@2x.png in Resources */,
@@ -392,6 +394,12 @@
 				006253DA1575576C00F318C5 /* ScannerKitOverlayStretchable.png in Resources */,
 				006253DB1575576C00F318C5 /* ScannerKitOverlayStretchable@2x.png in Resources */,
 				0062540D15758B4C00F318C5 /* Settings.bundle in Resources */,
+				009B882B157C4A3A00329588 /* brief_case.png in Resources */,
+				009B882E157C4A6600329588 /* brief_case@2x.png in Resources */,
+				009B8830157C4B1000329588 /* 117-todo.png in Resources */,
+				009B8832157C4B7000329588 /* 24-gift.png in Resources */,
+				009B8834157C4B9100329588 /* 58-bookmark.png in Resources */,
+				009B8836157C4BED00329588 /* 33-cabinet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +525,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -544,7 +552,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -562,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		006253931575504500F318C5 /* Build configuration list for PBXNativeTarget "BookCollection" */ = {
+		006253931575504500F318C5 /* Build configuration list for PBXNativeTarget "MyBooks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				006253941575504500F318C5 /* Debug */,

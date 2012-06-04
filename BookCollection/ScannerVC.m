@@ -24,7 +24,6 @@
 
 - (void) startScan
 {
-    NSLog(@"starting scan");
     if([SKScannerViewController canRecognizeBarcodes]) {
         SKScannerViewController *scannerVC = [[SKScannerViewController alloc] init]; //Insantiate a new SKScannerViewController
         
@@ -43,17 +42,17 @@
         //[self presentViewController:_nc animated:NO completion:NULL];
     } else {
         //NSLog(@"NOT able to recognize barcodes");
-        //[self dismissModalViewControllerAnimated:NO];
-        //[self.navigationController popViewControllerAnimated:YES];
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"This device doesn't support barcode recognition." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alertView show];
+        
+        //[self dismissModalViewControllerAnimated:NO];
+        //[self.navigationController popViewControllerAnimated:YES];
     }
 }
 
 - (void) cancelTapped {
-    NSLog(@"AddBookVC, cancelTapped");
 	[self dismissModalViewControllerAnimated:NO];
     [self.navigationController popViewControllerAnimated:YES];
     //[self dismissViewControllerAnimated:NO completion:NULL];
@@ -62,7 +61,7 @@
 #pragma mark SKScannerViewControllerDelegate Methods
 
 - (void) scannerViewController:(SKScannerViewController *)scanner didRecognizeCode:(SKCode *)code {
-	NSLog(@"didRecognizeCode = %@", code.rawContent);
+	//NSLog(@"didRecognizeCode = %@", code.rawContent);
     
 	//AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
@@ -75,7 +74,12 @@
 - (void) scannerViewController:(SKScannerViewController *)scanner didStopLookingForCodesWithError:(NSError *)error {
 	[self dismissModalViewControllerAnimated:YES];
     
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[error userInfo] objectForKey:@"Reason"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+                                                    message:[[error userInfo] 
+                                               objectForKey:@"Reason"] 
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"OK" 
+                                          otherButtonTitles:nil];
     
 	[alert show];
 }

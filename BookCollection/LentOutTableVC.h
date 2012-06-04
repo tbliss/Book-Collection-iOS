@@ -15,7 +15,6 @@
 @property (nonatomic) BookCollection *bookCollection;
 @property (nonatomic) NSMutableArray *books;
 
-- (void) addBook;
 - (void) setColl: (BookCollection *)coll;
 - (void) refreshTable;
 

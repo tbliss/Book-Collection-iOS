@@ -64,7 +64,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    //NSLog(@"ReadTableVC, viewWillAppear");
     if (!self.bookCollection)
         return;
     
@@ -102,7 +101,7 @@
     }
     
     // Let user know another view if pressed
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
     return cell;
 }
@@ -166,6 +165,12 @@
         AddBookVC *addBook = (AddBookVC*)segue.destinationViewController;
         addBook.bookCollection = self.bookCollection;
     }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *tableCell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"AllBookView" sender:tableCell];
 }
 
 @end

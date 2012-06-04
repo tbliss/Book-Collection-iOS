@@ -30,7 +30,8 @@
     NSData *data = [defaults objectForKey:@"bookCollection"];
     NSMutableArray *tempCollection = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     if (tempCollection) {
-        self.bookCollection = [[BookCollection alloc] initWithBooks:tempCollection];
+        //self.bookCollection = [[BookCollection alloc] initWithBooks:tempCollection];
+        [self populateExData];
     } else {
         [self populateExData];        
     }
@@ -72,9 +73,6 @@
 - (void)saveState
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    //[defaults setObject:self.bookCollection.collection forKey:@"bookCollection"];
-    //[defaults synchronize];
-    
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.bookCollection.collection];
     [defaults setObject:data forKey:@"bookCollection"];
     [defaults synchronize];
@@ -88,7 +86,7 @@
     Book *book1 = [[Book alloc] init];
     book1.title = @"Catcher in the Rye";
     book1.author = @"J. D. Salinger";
-    book1.read = YES;
+    book1.read = NO;
     book1.reading = NO;
     book1.lentOut = NO;
     book1.lentTo = @"";
@@ -97,19 +95,19 @@
     Book *book2 = [[Book alloc] init];
     book2.title = @"Slaughterhouse Five";
     book2.author = @"Kurt Vonnegut";
-    book1.read = YES;
-    book1.reading = YES;
-    book1.lentOut = YES;
-    book1.lentTo = @"Stacy";
+    book2.read = NO;
+    book2.reading = NO;
+    book2.lentOut = NO;
+    book2.lentTo = @"";
     [bookArray addObject:book2];
     
     Book *book3 = [[Book alloc] init];
-    book3.title = @"Cool Book";
-    book3.author = @"Cool Guy";
-    book1.read = NO;
-    book1.reading = NO;
-    book1.lentOut = NO;
-    book1.lentTo = @"";
+    book3.title = @"Ham On Rye";
+    book3.author = @"Charles Bukowski";
+    book3.read = NO;
+    book3.reading = NO;
+    book3.lentOut = NO;
+    book3.lentTo = @"";
     [bookArray addObject:book3];
     
     self.bookCollection = [[BookCollection alloc]initWithBooks:bookArray];

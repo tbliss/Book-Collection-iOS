@@ -28,11 +28,6 @@
     return self;
 }
 
-- (void) addBook
-{
-    //NSLog(@"addBoook");
-}
-
 - (void) setColl: (BookCollection *)coll
 {
     [self view];
@@ -108,7 +103,7 @@
     }
     
     // Let user know another view if pressed
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
     return cell;
 }
@@ -173,6 +168,12 @@
         addBook.bookCollection = self.bookCollection;
         addBook.switchOn = @"lentOut";
     }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *tableCell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"WishlistBookView" sender:tableCell];
 }
 
 @end

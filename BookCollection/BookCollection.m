@@ -73,7 +73,6 @@
 
 - (void) deleteBook: (NSNumber*)index
 {
-    //NSLog(@"deleting book: %d", [index intValue]);
     [self.collection removeObjectAtIndex:[index intValue]];
     [self refreshArrays];
 }

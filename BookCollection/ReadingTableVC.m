@@ -104,7 +104,7 @@
     }
     
     // Let user know another view if pressed
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
     return cell;
 }
@@ -157,8 +157,6 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"segue: %@", segue.identifier);
-    
     if ([@"ReadingBookView" isEqualToString:segue.identifier]) {
         BookVC *bookView = (BookVC*)segue.destinationViewController;
         
@@ -171,6 +169,12 @@
         addBook.bookCollection = self.bookCollection;
         addBook.switchOn = @"reading";
     }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *tableCell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"ReadingBookView" sender:tableCell];
 }
 
 @end

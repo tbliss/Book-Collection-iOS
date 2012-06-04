@@ -102,7 +102,6 @@
 
 - (void) sendISBN: (NSString*)isbn
 {
-    NSLog(@"sendISBN");
     NSString *baseUrl = @"http://www.isbndb.com/api/books.xml?access_key=98QZ8588&index1=isbn&value1=";
     NSString *fullUrl = [baseUrl stringByAppendingString:isbn];    
     NSURL *url = [NSURL URLWithString:fullUrl];

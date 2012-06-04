@@ -106,8 +106,8 @@
     }
     
     // Let user know another view if pressed
-    //cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    //cell.accessoryType = UITableViewCellAccessoryNone;
     
     return cell;
 }
@@ -172,6 +172,12 @@
         addBook.bookCollection = self.bookCollection;
         addBook.switchOn = @"read";
     }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *tableCell = [tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"ReadBookView" sender:tableCell];
 }
 
 #pragma mark UIActionSheet delegate
